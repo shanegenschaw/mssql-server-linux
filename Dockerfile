@@ -1,4 +1,4 @@
-FROM microsoft/mssql-server-linux
+FROM microsoft/mssql-server-linux:2017-GA
 MAINTAINER Shane Genschaw
 
 VOLUME /docker-entrypoint-initdb.d
