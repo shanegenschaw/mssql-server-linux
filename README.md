@@ -16,4 +16,8 @@ docker run -p 1433:1433 --name mssql -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=St
 
  * Linux-based mssql-docker [git repo](https://github.com/Microsoft/mssql-docker/tree/master/linux)
  * Running [SQL Server on Linux](https://docs.microsoft.com/en-us/sql/linux/) on top of an Ubuntu 16.04 base image.
-
+ * Note that the version 2017-CU3 currently (as of Feb. 15, 2018) has a bug described here: [https://github.com/Microsoft/mssql-docker/issues/136](https://github.com/Microsoft/mssql-docker/issues/136)
+ * Make sure that the .sh files have UNIX-style (LF) line endings. Depending on your platform and Git configuration, Git may change them to Windows-style (CR+LF). In this case, the container won't start, and you may see a non-informative error message like: 
+ ```
+ standard_init_linux.go:195: exec user process caused "no such file or directory"'.
+```
