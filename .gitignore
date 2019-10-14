@@ -2,3 +2,5 @@
 .project
 .idea
 ignore
+initdb.d/*
+!.gitkeep

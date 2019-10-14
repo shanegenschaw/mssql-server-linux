@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  server:
+    build: .
+    image: genschsa/mssql-server-linux
+    container_name: mssql
+    ports:
+      - "1433:1433"
+    environment:
+      - SA_PASSWORD
+      - ACCEPT_EULA
+    volumes:
+      - ./initdb.d:/docker-entrypoint-initdb.d

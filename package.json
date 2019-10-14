@@ -4,10 +4,11 @@
   "description": "Clone of microsoft/mssql-server-linux image with initdb functionality.",
   "main": "index.js",
   "scripts": {
-    "start": "docker run -p 1433:1433 --name mssql -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Strong(!)Password' -v $PWD/initdb.d:/docker-entrypoint-initdb.d -d genschsa/mssql-server-linux",
-    "stop": "docker stop mssql && docker rm mssql",
-    "build": "docker build -t genschsa/mssql-server-linux .",
-    "sqlcmd": "docker exec -it mssql sqlcmd -U SA -P 'Strong(!)Password'",
+    "start": "docker-compose up -d",
+    "stop": "docker-compose stop",
+    "down": "docker-compose down",
+    "build": "docker-compose build",
+    "sqlcmd": "docker-compose exec server sqlcmd -U sa",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
